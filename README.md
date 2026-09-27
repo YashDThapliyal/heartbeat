@@ -1,3 +1,5 @@
+<img width="600" height="600" alt="heartbeat-explode-600" src="https://github.com/user-attachments/assets/d8ecd6ec-9386-423d-a134-244860b8e1d6" />
+
 # Heartbeat — Inside a mechanical watch
 
 A real-time 3D exhibit that explains how a hand-wound mechanical watch keeps time. One persistent React Three Fiber scene is scrubbed by scroll: the watch opens, the movement explodes, energy is followed from the mainspring through the gear train, the escapement is shown in slow motion, and everything reassembles.
