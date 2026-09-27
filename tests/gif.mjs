@@ -28,13 +28,23 @@ for (let i = 0; i < 120 && !(await page.evaluate(() => Boolean(document.querySel
 await page.addStyleTag({
   content: '.masthead,.chapter-nav,.copy,.labels,.intro-hint,.tour-bar,.scrim{display:none!important}',
 });
+// Freeze the idle sway and gliding reflections, so the last frame matches the first.
+const freezeDrift = () =>
+  page.evaluate(() => {
+    window.__calibre.story.elapsed = 0;
+  });
+
 const scrollTo = p =>
   page.evaluate(p => window.scrollTo({ top: (p / 9.75) * (document.documentElement.scrollHeight - innerHeight), behavior: 'instant' }), p);
 await scrollTo(P_END);
-await page.clock.runFor(4000);
+for (let i = 0; i < 40; i++) {
+  await freezeDrift();
+  await page.clock.runFor(100);
+}
 
 let n = 0;
 async function frame() {
+  await freezeDrift();
   await page.clock.runFor(1000 / FPS);
   await page.screenshot({ path: `${frames}/${String(n++).padStart(5, '0')}.png` });
 }
@@ -50,12 +60,12 @@ async function travel(from, to, seconds) {
   }
 }
 
-await hold(1.0);
-await travel(P_END, POSTER, 3.0);
+await hold(0.25);
+await travel(P_END, POSTER, 2.6);
 await hold(1.4);
-await travel(POSTER, P_END, 3.4);
+await travel(POSTER, P_END, 3.2);
 // Let the scene settle fully onto the opening pose so the loop is seamless.
-await hold(0.8);
+await hold(0.35);
 await browser.close();
 
 const palette = `${frames}/palette.png`;
