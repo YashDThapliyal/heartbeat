@@ -2,9 +2,15 @@
 
 # Heartbeat — Inside a mechanical watch
 
+**Live: [heartbeat-watch.vercel.app](https://heartbeat-watch.vercel.app)**
+
+> I've loved watches since I was a kid, and as I've grown older, I've come to really appreciate the craftsmanship that goes into a mechanical watch movement. I wanted to understand how all those tiny parts actually work together to keep time, so I used AI to help me build an interactive 3D mechanical watch. You can take it apart, wind it, and make it tick yourself.
+>
+> — Yash Thapliyal
+
 A real-time 3D exhibit that explains how a hand-wound mechanical watch keeps time. One persistent React Three Fiber scene is scrubbed by scroll: the watch opens, the movement explodes, energy is followed from the mainspring through the gear train, the escapement is shown in slow motion, and everything reassembles.
 
-Every part is generated procedurally. There are no model files, image assets, HDRs or network requests at runtime.
+Every part is generated procedurally. There are no model files, image assets or HDRs; the only network request is the live site-visit counter.
 
 ## Run
 
