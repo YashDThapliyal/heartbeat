@@ -50,5 +50,5 @@ export function useVisits(): number | null {
 }
 
 export function formatVisits(n: number): string {
-  return `${n.toLocaleString('en-US')} ${n === 1 ? 'visit' : 'visits'}`;
+  return `${n.toLocaleString('en-US')} ${n === 1 ? 'site visit' : 'site visits'}`;
 }
