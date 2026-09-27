@@ -11,6 +11,7 @@ import { revolutionSeconds } from '../movement/simulation';
 import { CATALOG } from '../movement/catalog';
 import type { Tour } from '../hooks/useTour';
 import { WOUND, nextBeatWord, requestTick } from '../animation/interaction';
+import { VisitCount } from './VisitCount';
 
 const BEATS_PER_HOUR = BEATS_PER_SECOND * 3600;
 const BARREL_HOURS = revolutionSeconds('barrel') / 3600;
@@ -318,7 +319,10 @@ export function Readout({ kind, story, onExplore, onGesture, tour }: Props) {
               Replay tour <span aria-hidden="true">↺</span>
             </button>
           </div>
-          <p className="credit">Made by Yash Thapliyal · 2026</p>
+          <p className="credit">
+            Made by Yash Thapliyal · 2026
+            <VisitCount className="inline" />
+          </p>
         </div>
       );
     default:

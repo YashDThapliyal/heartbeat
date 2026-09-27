@@ -13,6 +13,7 @@ import { useGlide } from './hooks/useGlide';
 import { useContinueWhenWound } from './hooks/useContinueWhenWound';
 import { useChapterLinks } from './hooks/useChapterLinks';
 import { TourBar } from './components/TourBar';
+import { VisitCount } from './components/VisitCount';
 import { requestTick } from './animation/interaction';
 import type { PartId } from './movement/catalog';
 
@@ -200,9 +201,12 @@ export default function App() {
       </div>
 
       <header className="masthead">
-        <button type="button" className="wordmark" onClick={() => (exploring ? exitExplore() : jump(0))}>
+        <div className="masthead-left">
+          <button type="button" className="wordmark" onClick={() => (exploring ? exitExplore() : jump(0))}>
           Heartbeat <span>01</span>
         </button>
+          <VisitCount />
+        </div>
         <div className="masthead-actions">
           {!exploring && (
             <button type="button" className={`tour-button${tour.playing ? ' playing' : ''}`} aria-pressed={tour.playing} onClick={tour.toggle}>
